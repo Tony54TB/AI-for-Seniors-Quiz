@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What does AI stand for?",
+    "options": ["Artificial Intelligence", "Automated Interface", "Advanced Integration"],
+    "answer": "Artificial Intelligence",
+    "explanation": "AI is simple abbreviation for Artificial Intelligence"
+  },
+  {
+    "question": "Which of these is an AI platform?",
+    "options": ["Amazon", "Spotify", "ChatGPT"],
+    "answer": "ChatGPT",
+    "explanation":"Amazona and Spotify are for shopping and music. ChattGPT is a AI LLM"
+  },
+  {
+    "question": "What is a common everyday example of AI helping people?",
+    "options": ["Voice assistants like Alexa or Siri", "A regular alarm clock", "A paper calendar"],
+    "answer": "Voice assistants like Alexa or Siri",
+    "explanation": "Voice assistants use AI to understand your words and help with reminders, music, or calling family — it's like having a helpful friend who listens!"
+  },
+  {
+    "question": "Can AI have real feelings or emotions like humans?",
+    "options": ["No, AI only simulates helpful responses", "Yes, AI feels happy or sad just like us", "Only when it's turned on"],
+    "answer": "No, AI only simulates helpful responses",
+    "explanation": "AI is very clever at patterns and words, but it doesn't have feelings, memories, or a heart — it's a tool, not a person."
+  },
+  {
+    "question": "How can AI help keep seniors safer online?",
+    "options": ["By spotting suspicious messages or scam emails", "By automatically sending money to friends", "By turning off the computer at night"],
+    "answer": "By spotting suspicious messages or scam emails",
+    "explanation": "Good AI tools can warn about fake messages or strange links — always double-check before clicking anything that asks for money or passwords!"
+  },
+  {
+    "question": "What does a 'prompt' mean when talking to AI?",
+    "options": ["The question or instruction you give to the AI", "A type of computer game", "A button on the keyboard"],
+    "answer": "The question or instruction you give to the AI",
+    "explanation": "A prompt is simply what you ask or tell the AI — the clearer and kinder your prompt, the better the answer you get!"
+  },
+  {
+    "question": "Which of these is something AI can do very quickly?",
+    "options": ["Translate words from one language to another", "Cook dinner for the family", "Drive a car by itself (in most places still not safely)"],
+    "answer": "Translate words from one language to another",
+    "explanation": "AI is excellent at language tasks like translating, summarizing news, or explaining things simply — but it still needs humans for real-world actions like cooking or driving."
+  },
+  {
+    "question": "Why do we say 'be careful' when sharing personal information with AI?",
+    "options": ["Because some companies might use the information you type", "Because AI can get angry if you share too much", "Because AI needs to charge money for every word"],
+    "answer": "Because some companies might use the information you type",
+    "explanation": "AI chats are usually private, but companies sometimes keep data to improve their systems — avoid sharing bank details, passwords, or very personal health information."
+  }, 
+  {
+    "question": "What is a neural network?",
+    "options": ["A network of computers", "A brain‑like model of data", "A type of database"],
+    "answer": "A brain‑like model of data",
+    "explanation":"It is called neural because of it's similarity to how the brain works"
+  },
+  {
+    "question": "What does LLM stand for?",
+    "options": ["Last Legitimate Marker", "Large Language Matrix", "Large Language Model"],
+    "answer": "Large Language Model",
+    "explanation":"This is simply 'large' amounts of data read and memorised on a platform"
+  }
+]
