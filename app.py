@@ -31,7 +31,7 @@ button:has-text("→ Next Question") {
     border-radius: 10px !important;
 }
 
-/* Question and subheader text */
+/* Question text */
 .stMarkdown h3, .stMarkdown p {
     font-size: 24px !important;
     line-height: 1.7 !important;
@@ -53,14 +53,17 @@ button:has-text("→ Next Question") {
     text-align: center !important;
 }
 
-/* Small footer */
-.footer {
-    font-size: 14px !important;
+/* Small footer - extra specific */
+.footer, 
+p.footer, 
+div[data-testid="stMarkdownContainer"] p.footer {
+    font-size: 12px !important;
     color: #6b7280 !important;
     text-align: center !important;
-    margin-top: 40px !important;
-    padding-top: 20px !important;
+    margin-top: 60px !important;
+    padding-top: 25px !important;
     border-top: 1px solid #e5e7eb !important;
+    line-height: 1.4 !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -120,7 +123,7 @@ if st.session_state.answered:
             st.session_state.question_index += 1
             st.rerun()
         else:
-            # Final screen
+            # ==================== FINAL SCREEN ====================
             st.balloons()
             st.success("🎉 Well done! You've completed the AI Quiz!")
 
@@ -139,12 +142,13 @@ if st.session_state.answered:
                 st.markdown("**Great effort!** Every question helps you learn more about AI.", unsafe_allow_html=True)
 
             if st.button("Play again", key="play_again_final"):
-                st.session_state.score = 0
-                st.session_state.question_index = 0
-                st.session_state.answered = False
-                st.session_state.selected = None
+                # Complete reset of all session state
+                for key in list(st.session_state.keys()):
+                    del st.session_state[key]
                 st.session_state.shuffled = random.sample(ALL_QUESTIONS, len(ALL_QUESTIONS))
                 st.rerun()
+                
+            # Footer
+            st.markdown('<p class="footer">Made by Tony at ToneBone Media for Senior Citizen familiarity with AI</p>', unsafe_allow_html=True)
+                
 
-# Footer
-st.markdown('<p class="footer">Made by Tony at ToneBone Media for Senior Citizen familiarity with AI</p>', unsafe_allow_html=True)
