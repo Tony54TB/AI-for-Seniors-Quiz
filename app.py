@@ -70,10 +70,14 @@ div[data-testid="stMarkdownContainer"] p.footer {
 </style>
 """, unsafe_allow_html=True)
 
-# Load questions
-with open("data/questions.json", "r", encoding="utf-8") as f:
-    ALL_QUESTIONS = json.load(f)
 
+# Load questions
+@st.cache_data
+def load_questions():
+    with open("data/questions.json", "r", encoding="utf-8") as f:
+        return json.load(f)
+
+ALL_QUESTIONS = load_questions()
 
 # Session state
 if "score" not in st.session_state:
