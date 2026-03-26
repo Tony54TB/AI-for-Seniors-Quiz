@@ -3,6 +3,8 @@ import random
 import streamlit as st
 
 # ====================== SENIOR-FRIENDLY STYLING ======================
+st.set_page_config(page_title="AI Quiz for Seniors", layout="centered")
+
 st.markdown("""
 <style>
 /* Answer buttons */
@@ -72,7 +74,6 @@ div[data-testid="stMarkdownContainer"] p.footer {
 with open("data/questions.json", "r", encoding="utf-8") as f:
     ALL_QUESTIONS = json.load(f)
 
-st.set_page_config(page_title="AI Quiz for Seniors", layout="centered")
 
 # Session state
 if "score" not in st.session_state:
@@ -98,10 +99,6 @@ q = st.session_state.shuffled[st.session_state.question_index]
 st.subheader(f"Question {st.session_state.question_index + 1}")
 st.write(q["question"]) 
 
-# Flag for feedback
-if "answered" not in st.session_state:
-    st.session_state.answered = False
-
 # Render answer buttons
 for opt in q["options"]:
     if st.button(opt, key=f"{st.session_state.question_index}_{opt}", help="Click to choose this answer"):
@@ -123,7 +120,11 @@ if st.session_state.answered:
             st.session_state.question_index += 1
             st.rerun()
         else:
-            # ==================== FINAL SCREEN ====================
+            st.session_state.quiz_done = True  # set a flag
+            st.rerun()
+
+# OUTSIDE the button block:
+if st.session_state.get("quiz_done"):            
             st.balloons()
             st.success("🎉 Well done! You've completed the AI Quiz!")
 
@@ -142,11 +143,13 @@ if st.session_state.answered:
                 st.markdown("**Great effort!** Every question helps you learn more about AI.", unsafe_allow_html=True)
 
             if st.button("Play again", key="play_again_final"):
-                # Complete reset of all session state
-                for key in list(st.session_state.keys()):
-                    del st.session_state[key]
+                st.session_state.score = 0
+                st.session_state.question_index = 0
+                st.session_state.answered = False
+                st.session_state.quiz_done = False
                 st.session_state.shuffled = random.sample(ALL_QUESTIONS, len(ALL_QUESTIONS))
                 st.rerun()
+            
                 
             # Footer
             st.markdown('<p class="footer">Made by Tony at ToneBone Media for Senior Citizen familiarity with AI</p>', unsafe_allow_html=True)
